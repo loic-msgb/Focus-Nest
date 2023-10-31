@@ -1,4 +1,4 @@
-from flask import Flask, jsonify, request
+from flask import Flask, jsonify, request, render_template
 from pomodoro_session import PomodoroSession  # Importez la classe depuis le fichier séparé
 
 app = Flask(__name__)
@@ -7,8 +7,8 @@ app = Flask(__name__)
 sessions = []
 
 @app.route('/')
-def hello_world():
-    return 'Hello, World!'
+def index():
+    return render_template('index.html')
 
 @app.route('/create_session', methods=['POST'])
 def create_pomodoro_session():
